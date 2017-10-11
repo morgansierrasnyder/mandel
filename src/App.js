@@ -1,5 +1,6 @@
 import * as React from 'react'
 import glamorous from 'glamorous'
+import { upperCase } from 'lodash'
 import {
   BrowserRouter as Router,
   Route,
@@ -34,6 +35,8 @@ class App extends React.Component {
             <Router>
               <Switch>
                 <Route path="/fractals" component={Home} />
+                <Route path="/fractals/:any" component={() => <div>I'm hiding the good stuff</div>} />
+                <Route path="/fractals/:any/:param" component={({ match }) => <div>{upperCase(match.params.param)}</div>} />
                 <Route path="*" render={() => <div>Uncharted Territory</div>} />
               </Switch>
             </Router>
