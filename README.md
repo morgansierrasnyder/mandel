@@ -4,14 +4,14 @@ Showing off a centralized, robust, recursive routing configuration for React app
 
 ## Developing
 
-`$ git clone git@github.com:morgansierrasnyder/mandel.git`
-`$ cd mandel`
-`$ yarn install`
-`$ yarn start`
+`$ git clone git@github.com:morgansierrasnyder/mandel.git`  
+`$ cd mandel`  
+`$ yarn install`  
+`$ yarn start`  
 
 ### Branches
 
-`$ git fetch`
+`$ git fetch`  
 `$ git checkout [remote-branch-name]`
 
 #### master
