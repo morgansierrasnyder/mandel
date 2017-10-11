@@ -1,6 +1,6 @@
 import glamorous from 'glamorous'
 
 export default glamorous.img({
-  width: '90px'
+  width: '100px'
 })
 

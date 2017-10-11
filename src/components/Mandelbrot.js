@@ -9,8 +9,10 @@ export default () => (
     <Title>Mandelbrot Set</Title>
     <Thumbnail src="https://i.stack.imgur.com/nskqS.jpg" />
     <ul>
+      <li>
+        <Link to="/fractals/julia">Julia Set</Link>
+      </li>
       <li>Mandelbulb</li>
-      <li>Julia Set</li>
       <li>Multibrot</li>
     </ul>
   </div>
