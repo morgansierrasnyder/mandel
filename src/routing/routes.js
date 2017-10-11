@@ -1,5 +1,5 @@
 import React from 'react'
-import { upperCase } from 'lodash'
+import { upperCase, startCase } from 'lodash'
 
 import { pageNames, fullPaths } from './utils'
 import Fractals from '../components/Fractals'
@@ -9,6 +9,13 @@ import Triangle from '../components/Triangle'
 import Snowflake from '../components/Snowflake'
 import Param from '../components/Param'
 import Title from '../components/Title'
+
+const components = {
+  mandelbrot: Mandelbrot,
+  julia: Julia,
+  triangle: Triangle,
+  snowflake: Snowflake
+}
 
 /**
  * Array of Routes:
@@ -31,33 +38,14 @@ const Routes = [
     title: () => 'Fractals',
     children: [
       {
-        name: 'Mandelbrot',
-        path: 'mandelbrot',
-        component: Mandelbrot,
-        title: () => 'Mandelbrot Set',
-        children: [
-          {
-            name: 'Param',
-            path: ':param',
-            component: Param,
-            title: ({ match }) => upperCase(match.params.param)
-          }
-        ]
-      }, {
-        name: 'Julia',
-        path: 'julia',
-        component: Julia,
-        title: () => 'Julia Set'
-      }, {
-        name: 'Triangle',
-        path: 'triangle',
-        component: Triangle,
-        title: () => 'Sierpinski Triangle'
-      }, {
-        name: 'Snowflake',
-        path: 'snowflake',
-        component: Snowflake,
-        title: () => 'Koch Snowflake'
+        name: 'Fractal',
+        path: ':fractal',
+        component: (props) => {
+          console.log(props)
+          const Fractal = components[props.match.params.fractal] || null
+          return <Fractal />
+        },
+        title: ({ match }) => startCase(match.params.fractal)
       }
     ]
   }, {
