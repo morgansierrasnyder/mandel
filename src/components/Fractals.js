@@ -1,19 +1,10 @@
 import * as React from 'react'
-import glamorous from 'glamorous'
-import {
-  Route,
-  Link,
-  Switch
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Title from './Title'
-import Mandelbrot from './Mandelbrot'
-import Julia from './Julia'
-import Triangle from './Triangle'
-import Snowflake from './Snowflake'
 
 const basepath = 'fractals'
-export default () => (
+export default ({ route }) => (
   <div>
     <Title>Fractals</Title>
     <ul>
@@ -31,12 +22,5 @@ export default () => (
       </li>
       <li>Menger Sponge</li>
     </ul>
-
-    <Switch>
-      <Route path="/fractals/mandelbrot" component={Mandelbrot} />
-      <Route path="/fractals/julia" component={Julia} />
-      <Route path="/fractals/triangle" component={Triangle} />
-      <Route path="/fractals/snowflake" component={Snowflake} />
-    </Switch>
   </div>
 )
