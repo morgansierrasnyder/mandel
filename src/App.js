@@ -1,7 +1,14 @@
 import * as React from 'react'
 import glamorous from 'glamorous'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom'
+
 import mandel from './mandel.svg'
-import Home from './components/Home'
+import Home from './components/Fractals'
 import './App.css';
 
 const Container = glamorous.div({
@@ -24,7 +31,12 @@ class App extends React.Component {
         </header>
         <Container>
           <Content>
-            <Home />
+            <Router>
+              <Switch>
+                <Route path="/fractals" component={Home} />
+                <Route path="*" render={() => <div>Uncharted Territory</div>} />
+              </Switch>
+            </Router>
           </Content>
         </Container>
       </div>
