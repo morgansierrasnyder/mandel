@@ -8,10 +8,7 @@ import {
 
 import Title from './Title'
 import Thumbnail from './Thumbnail'
-
-const Param = ({ match }) => (
-  <div style={{ marginBottom: '24px', color: 'limegreen' }}>{upperCase(match.params.param)}</div>
-)
+import Param from './Param'
 
 export default () => (
   <div>

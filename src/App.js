@@ -10,6 +10,10 @@ import {
 
 import mandel from './mandel.svg'
 import Home from './components/Fractals'
+// import Mandelbrot from './components/Mandelbrot'
+// import Julia from './components/Julia'
+// import Triangle from './components/Triangle'
+// import Snowflake from './components/Snowflake'
 import './App.css';
 
 const Container = glamorous.div({
@@ -23,6 +27,27 @@ const Content = glamorous.div({
   width: '500px'
 })
 
+// const components = {
+//   mandelbrot: Mandelbrot,
+//   julia: Julia,
+//   triangle: Triangle,
+//   snowflake: Snowflake
+// }
+
+// const FuzzyRoute = () => (
+//  <Route exact path="/fractals/:fractal" component={
+//     ({match}) => {
+//       const Component = components[(match.params.fractal)]
+//       return (
+//         <div>
+//           <Link to="/fractals">Home</Link>
+//           <Component />
+//         </div>
+//       )
+//     }
+//   }/>
+// )
+
 class App extends React.Component {
   render() {
     return (
@@ -35,8 +60,6 @@ class App extends React.Component {
             <Router>
               <Switch>
                 <Route path="/fractals" component={Home} />
-                <Route path="/fractals/:any" component={() => <div>I'm hiding the good stuff</div>} />
-                <Route path="/fractals/:any/:param" component={({ match }) => <div>{upperCase(match.params.param)}</div>} />
                 <Route path="*" render={() => <div>Uncharted Territory</div>} />
               </Switch>
             </Router>
