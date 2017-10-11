@@ -1,5 +1,14 @@
+import React from 'react'
 import { upperCase } from 'lodash'
+
 import { pageNames, fullPaths } from './utils'
+import Fractals from '../components/Fractals'
+import Mandelbrot from '../components/Mandelbrot'
+import Julia from '../components/Julia'
+import Triangle from '../components/Triangle'
+import Snowflake from '../components/Snowflake'
+import Param from '../components/Param'
+import Title from '../components/Title'
 
 /**
  * Array of Routes:
@@ -18,36 +27,43 @@ const Routes = [
   {
     name: 'Fractals',
     path: 'fractals',
+    component: Fractals,
     title: () => 'Fractals',
     children: [
       {
         name: 'Mandelbrot',
         path: 'mandelbrot',
+        component: Mandelbrot,
         title: () => 'Mandelbrot Set',
         children: [
           {
             name: 'Param',
             path: ':param',
+            component: Param,
             title: ({ match }) => upperCase(match.params.param)
           }
         ]
       }, {
         name: 'Julia',
         path: 'julia',
+        component: Julia,
         title: () => 'Julia Set'
       }, {
         name: 'Triangle',
         path: 'triangle',
+        component: Triangle,
         title: () => 'Sierpinski Triangle'
       }, {
         name: 'Snowflake',
         path: 'snowflake',
+        component: Snowflake,
         title: () => 'Koch Snowflake'
       }
     ]
   }, {
     name: 'PageNotFound',
     path: '*',
+    component: ({ route }) => <Title>{route.title()}</Title>,
     title: () => 'Uncharted Territory'
   }
 ]

@@ -2,9 +2,7 @@
 
 import * as React from 'react'
 
-import { fullRoutes } from './utils'
 import Routes from './routes'
-import Components from './components'
 import RenderRoutes from './RenderRoutes'
 
 /**
@@ -21,7 +19,6 @@ import RenderRoutes from './RenderRoutes'
  * https://reacttraining.com/react-router/web/guides/philosophy
  */
 
-const ComponentRoutes = fullRoutes(Routes, Components)
-const Router = () => <RenderRoutes routes={ComponentRoutes} path="" />
+const Router = () => <RenderRoutes routes={Routes} path="" />
 
 export default Router
